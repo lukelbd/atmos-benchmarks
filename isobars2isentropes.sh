@@ -11,6 +11,12 @@ for data in ${datas[@]}; do
   # Python with MetPy method
   bench "MetPy + Dask" python metpy.py $data 10
 
+  # Python with xgcm
+  bench "xgcm" python xgcm.py $data 0
+
+  # Python with xgcm
+  bench "xgcm + Dask" python xgcm.py $data 10
+
   # NCL method
   # NOTE: NCL needs special dyld library path but so does brew, screws
   # up Homebrew if we set it, so set it locally
